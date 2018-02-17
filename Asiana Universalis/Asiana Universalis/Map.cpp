@@ -1,6 +1,34 @@
 ﻿#include "Map.h"
 
-
+void Map::KEY(unsigned int k)
+{
+	switch (k)
+	{
+		case SDLK_q:
+		{
+			MMD_ = 0;
+			break;
+		}
+		case SDLK_w:
+		{
+			MMD_ = 1;
+			break;
+		}
+		case SDLK_e:
+		{
+			MMD_ = 2;
+			break;
+		}
+		case SDLK_r:
+		{
+			MMD_ = 3;
+			break;
+		}
+		default:
+			break;
+	}
+	return;
+}
 
 
 
@@ -43,7 +71,7 @@ void Map::INIT()
 
 	MMD_H.SET(-20, 20);
 	MMD_GH.SET(0, 10);
-	MMD_P.SET(0, 150);
+	MMD_P.SET(0, 15);
 
 	return;
 }
@@ -265,7 +293,7 @@ void Map::STEP()
 						else
 						{
 							//OTHER ELSE
-							if (Map::GRP_RECT[a][b].PLATE_H > 1.0 && Map::GRP_RECT[a][b].PLATE_P > 1.0 && Map::GRP_RECT[c][d].PLATE_H < 0.1 && av&& rand() % (8 - w) == 0)
+							if (Map::GRP_RECT[a][b].PLATE_H > 1.0 && Map::GRP_RECT[a][b].PLATE_P > 1.0 && Map::GRP_RECT[c][d].PLATE_H < 0.1)
 							{
 								Map::GRP_RECT[c][d].PLATE_TYPE = Map::GRP_RECT[a][b].PLATE_TYPE;
 								e = (Map::GRP_RECT[a][b].PLATE_H) / 2.0 * PLT_MVE;

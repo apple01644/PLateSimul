@@ -15,6 +15,7 @@
 #include <ctime>
 #include <Windows.h>
 #include <string>
+#include <SDL_keyboard.h>
 
 struct Range
 {
@@ -64,8 +65,8 @@ struct Map_Data
 	{
 		for (int a = 0; a < MAX_PLATE; a++)
 		{
-			PLATE_W[a][0] = ((double)(rand() % 1000)*2.0 - 1000) * 0.002;
-			PLATE_W[a][1] = ((double)(rand() % 1000)*2.0 - 1000) * 0.002;
+			PLATE_W[a][0] = ((double)(rand() % 1000)*2.0 - 1000) * 0.2;
+			PLATE_W[a][1] = ((double)(rand() % 1000)*2.0 - 1000) * 0.2;
 			OutputDebugStringA("Plate :");
 			OutputDebugStringA(std::to_string(PLATE_W[a][0]).c_str());
 			OutputDebugStringA(", ");
@@ -111,7 +112,7 @@ public:
 	int GET_RECT(int, int, int);
 	bool CHECK_RECT(int, int);
 	void STEP();
-
+	void KEY(unsigned int);
 };
 
 #endif
